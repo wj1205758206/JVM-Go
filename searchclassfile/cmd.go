@@ -11,6 +11,7 @@ type Cmd struct {
 	helpFlag    bool     //帮助选项，输出帮助信息
 	versionFlag bool     //版本选项，输出版本信息
 	cpOption    string   //目录和 zip/jar 文件的类搜索路径，用于搜索类文件
+	XjreOption  string   //指定jre目录的位置
 	class       string   //主类名，用于指定主类
 	args        []string //参数信息
 }
@@ -24,8 +25,10 @@ func parseCmd() *Cmd {
 	flag.BoolVar(&cmd.helpFlag, "help", false, "print help message")
 	flag.BoolVar(&cmd.helpFlag, "?", false, "print help message")
 	flag.BoolVar(&cmd.versionFlag, "version", false, "print version and exit")
-	flag.StringVar(&cmd.cpOption, "searchclassfile", "", "searchclassfile")
-	flag.StringVar(&cmd.cpOption, "cp", "", "searchclassfile")
+	flag.StringVar(&cmd.cpOption, "classpath", "", "classpath")
+	flag.StringVar(&cmd.cpOption, "cp", "", "classpath")
+	//JVM虚拟机使用JDK的启动类路径来寻找和加载java标准库中的类，添加-Xjre选项用来指定jre目录位置
+	flag.StringVar(&cmd.XjreOption, "Xjre", "", "path to jre")
 	//调用Parse函数解析选项
 	flag.Parse()
 	args := flag.Args()
