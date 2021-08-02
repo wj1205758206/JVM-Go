@@ -25,8 +25,9 @@ func parseCmd() *Cmd {
 	flag.BoolVar(&cmd.helpFlag, "help", false, "print help message")
 	flag.BoolVar(&cmd.helpFlag, "?", false, "print help message")
 	flag.BoolVar(&cmd.versionFlag, "version", false, "print version and exit")
-	flag.StringVar(&cmd.cpOption, "searchclassfile", "", "searchclassfile")
-	flag.StringVar(&cmd.cpOption, "cp", "", "searchclassfile")
+	flag.StringVar(&cmd.cpOption, "classpath", "", "classpath")
+	flag.StringVar(&cmd.cpOption, "cp", "", "classpath")
+	//JVM虚拟机使用JDK的启动类路径来寻找和加载java标准库中的类，添加-Xjre选项用来指定jre目录位置
 	flag.StringVar(&cmd.XjreOption, "Xjre", "", "path to jre")
 	//调用Parse函数解析选项
 	flag.Parse()
