@@ -44,7 +44,8 @@ func (self *ClassFile) read(reader *ClassReader) {
 	self.superClass = reader.readUint16()
 	self.interfaces = reader.readUint16Table()
 	self.fileds = readMembers(reader, self.constantPool)
-	self.methods = readAttributes(reader, self.constantPool)
+	self.methods = readMembers(reader, self.constantPool)
+	self.attributes = readAttributes(reader, self.constantPool)
 }
 
 //readAndCheckMagic 读取魔数并检查
