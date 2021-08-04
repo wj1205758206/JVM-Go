@@ -96,3 +96,4 @@ func (self *LCONST_0) Execute(frame *rtda.Frame) {
 func (self *LCONST_1) Execute(frame *rtda.Frame) {
 	frame.GetOperandStack().PushLong(1)
 }
+

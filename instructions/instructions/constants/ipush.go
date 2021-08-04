@@ -25,3 +25,4 @@ func (self *BIPUSH) Execute(frame *rtda.Frame) {
 	i := int32(self.val)
 	frame.GetOperandStack().PushInt(i)
 }
+
