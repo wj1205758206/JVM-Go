@@ -5,7 +5,7 @@ import (
 	"JVM-Go/rtda/rtda"
 )
 
-//iload系列指令
+//iload系列指令 从局部变量中加载int类型变量
 
 type ILOAD struct {
 	base.Index8Instruction
