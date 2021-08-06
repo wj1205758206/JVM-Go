@@ -12,6 +12,7 @@ type IADD struct {
 
 //LADD long类型加法指令
 type LADD struct {
+	base.NoOperandsInstruction
 }
 
 //FADD float类型加法指令

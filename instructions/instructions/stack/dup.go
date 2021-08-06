@@ -62,7 +62,7 @@ func (self *DUP_X2) Execute(frame *rtda.Frame) {
 	stack.PushSlot(slot1)
 }
 
-func (self *DUP2) Execute(frame rtda.Frame) {
+func (self *DUP2) Execute(frame *rtda.Frame) {
 	stack := frame.GetOperandStack()
 	slot1 := stack.PopSlot()
 	slot2 := stack.PopSlot()
@@ -72,7 +72,7 @@ func (self *DUP2) Execute(frame rtda.Frame) {
 	stack.PushSlot(slot1)
 }
 
-func (self *DUP2_X1) Execute(frame rtda.Frame) {
+func (self *DUP2_X1) Execute(frame *rtda.Frame) {
 	stack := frame.GetOperandStack()
 	slot1 := stack.PopSlot()
 	slot2 := stack.PopSlot()
@@ -84,7 +84,7 @@ func (self *DUP2_X1) Execute(frame rtda.Frame) {
 	stack.PushSlot(slot1)
 }
 
-func (self *DUP2_X2) Execute(frame rtda.Frame) {
+func (self *DUP2_X2) Execute(frame *rtda.Frame) {
 	stack := frame.GetOperandStack()
 	slot1 := stack.PopSlot()
 	slot2 := stack.PopSlot()

@@ -6,8 +6,8 @@ type Thread struct {
 	stack *Stack //Java虚拟机栈
 }
 
-//newThread 创建线程实例
-func newThread() *Thread {
+//NewThread 创建线程实例
+func NewThread() *Thread {
 	return &Thread{
 		stack: newStack(1024),
 	}
@@ -36,4 +36,12 @@ func (self *Thread) PopFrame() *Frame {
 //CurrentFrame 获取当前栈帧
 func (self *Thread) CurrentFrame() *Frame {
 	return self.stack.top()
+}
+
+func (self *Thread) NewFrame(maxLocals, maxStack uint) *Frame {
+	return NewFrame(self, maxLocals, maxStack)
+}
+
+func (self *Thread) GetPC() int {
+	return self.pc
 }
