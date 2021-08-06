@@ -25,6 +25,18 @@ func (self *CodeAttribute) readInfo(reader *ClassReader) {
 	self.attributes = readAttributes(reader, self.cp)
 }
 
+func (self *CodeAttribute) GetMaxLocals() uint {
+	return uint(self.maxLocals)
+}
+
+func (self *CodeAttribute) GetMaxStack() uint {
+	return uint(self.maxStack)
+}
+
+func (self *CodeAttribute) GetCode() []byte {
+	return self.code
+}
+
 func readExceptionTable(reader *ClassReader) []*ExceptionTableEntry {
 	exceptionTableLength := reader.readUint16()
 	exceptionTable := make([]*ExceptionTableEntry, exceptionTableLength)

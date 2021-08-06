@@ -35,3 +35,7 @@ func _dcmp(frame *rtda.Frame, gFlag bool) {
 func (self *DCMPL) Execute(frame *rtda.Frame) {
 	_dcmp(frame, false)
 }
+
+func (self *DCMPG) Execute(frame *rtda.Frame) {
+	_dcmp(frame, true)
+}
