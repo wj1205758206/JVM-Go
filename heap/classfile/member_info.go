@@ -54,3 +54,13 @@ func (self *MemberInfo) GetCodeAttribute() *CodeAttribute {
 	}
 	return nil
 }
+
+func (self *MemberInfo) GetConstantValueAttribute() *ConstantValueAttribute {
+	for _, attrInfo := range self.attributes {
+		switch attrInfo.(type) {
+		case *ConstantValueAttribute:
+			return attrInfo.(*ConstantValueAttribute)
+		}
+	}
+	return nil
+}

@@ -13,10 +13,10 @@ type Class struct {
 	methods           []*Method               //方法表
 	loader            *ClassLoader            //存放类加载器指针
 	superClass        *Class                  //保存父类的指针
-	interfaces        *[]Class                //保存实现接口的指针集合
+	interfaces        []*Class                //保存实现接口的指针集合
 	instanceSlotCount uint                    //存放实例变量占据空间的大小
 	staticSlotCount   uint                    //存放类变量占据空间的大小
-	staticVars        *Slots
+	staticVars        Slots
 }
 
 //newClass 用来把ClassFile结构体转换成Class结构体
