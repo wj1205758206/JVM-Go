@@ -1,8 +1,8 @@
 package comparisons
 
 import (
-	"JVM-Go/instructions/instructions/base"
-	"JVM-Go/rtda/rtda"
+	"JVM-Go/heap/instructions/base"
+	"JVM-Go/heap/rtda"
 )
 
 //FCMPG 比较两个float类型变量的大小，如果遇到NaN值，fcmpg会压入1

@@ -45,6 +45,7 @@ func (self ConstantPool) getUtf8(index uint16) string {
 	return utf8Info.str
 }
 
+
 //ConstantInfo 该接口用来表示常量池表项信息
 type ConstantInfo interface {
 	//readInfo 该方法读取常量池表项信息，需要由具体的常量结构体实现

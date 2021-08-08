@@ -1,8 +1,8 @@
 package loads
 
 import (
-	"JVM-Go/instructions/instructions/base"
-	"JVM-Go/rtda/rtda"
+	"JVM-Go/heap/instructions/base"
+	"JVM-Go/heap/rtda"
 )
 
 //dload系列指令 从局部变量中加载double类型变量

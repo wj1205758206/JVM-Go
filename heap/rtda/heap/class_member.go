@@ -59,3 +59,15 @@ func (self *ClassMember) IsFinal() bool {
 func (self *ClassMember) IsSynthetic() bool {
 	return self.accessFlags&ACC_SYNTHETIC != 0
 }
+
+func (self *ClassMember) GetName() string {
+	return self.name
+}
+
+func (self *ClassMember) GetDescriptor() string {
+	return self.descriptor
+}
+
+func (self *ClassMember) GetClass() *Class {
+	return self.class
+}

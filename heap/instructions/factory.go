@@ -1,16 +1,17 @@
 package instructions
 
 import (
-	"JVM-Go/instructions/instructions/base"
-	"JVM-Go/instructions/instructions/comparisons"
-	"JVM-Go/instructions/instructions/constants"
-	"JVM-Go/instructions/instructions/control"
-	"JVM-Go/instructions/instructions/conversions"
-	"JVM-Go/instructions/instructions/extended"
-	"JVM-Go/instructions/instructions/loads"
-	"JVM-Go/instructions/instructions/math"
-	"JVM-Go/instructions/instructions/stack"
-	"JVM-Go/instructions/instructions/stores"
+	"JVM-Go/heap/instructions/base"
+	"JVM-Go/heap/instructions/comparisons"
+	"JVM-Go/heap/instructions/constants"
+	"JVM-Go/heap/instructions/control"
+	"JVM-Go/heap/instructions/conversions"
+	"JVM-Go/heap/instructions/extended"
+	"JVM-Go/heap/instructions/loads"
+	"JVM-Go/heap/instructions/math"
+	"JVM-Go/heap/instructions/references"
+	"JVM-Go/heap/instructions/stack"
+	"JVM-Go/heap/instructions/stores"
 	"fmt"
 )
 
@@ -205,12 +206,12 @@ func NewInstruction(opcode byte) base.Instruction {
 		return &constants.BIPUSH{}
 	case 0x11:
 		return &constants.SIPUSH{}
-	// case 0x12:
-	// 	return &LDC{}
-	// case 0x13:
-	// 	return &LDC_W{}
-	// case 0x14:
-	// 	return &LDC2_W{}
+	case 0x12:
+		return &constants.LDC{}
+	case 0x13:
+		return &constants.LDC_W{}
+	case 0x14:
+		return &constants.LDC2_W{}
 	case 0x15:
 		return &loads.ILOAD{}
 	case 0x16:
@@ -513,50 +514,50 @@ func NewInstruction(opcode byte) base.Instruction {
 		return &control.TABLE_SWITCH{}
 	case 0xab:
 		return &control.LOOKUP_SWITCH{}
-	// case 0xac:
-	// 	return ireturn
-	// case 0xad:
-	// 	return lreturn
-	// case 0xae:
-	// 	return freturn
-	// case 0xaf:
-	// 	return dreturn
-	// case 0xb0:
-	// 	return areturn
-	// case 0xb1:
-	// 	return _return
-	//	case 0xb2:
-	//		return &GET_STATIC{}
-	// case 0xb3:
-	// 	return &PUT_STATIC{}
-	// case 0xb4:
-	// 	return &GET_FIELD{}
-	// case 0xb5:
-	// 	return &PUT_FIELD{}
-	//	case 0xb6:
-	//		return &INVOKE_VIRTUAL{}
-	// case 0xb7:
-	// 	return &INVOKE_SPECIAL{}
-	// case 0xb8:
-	// 	return &INVOKE_STATIC{}
-	// case 0xb9:
-	// 	return &INVOKE_INTERFACE{}
-	// case 0xba:
-	// 	return &INVOKE_DYNAMIC{}
-	// case 0xbb:
-	// 	return &NEW{}
-	// case 0xbc:
-	// 	return &NEW_ARRAY{}
-	// case 0xbd:
-	// 	return &ANEW_ARRAY{}
-	// case 0xbe:
-	// 	return arraylength
-	// case 0xbf:
-	// 	return athrow
-	// case 0xc0:
-	// 	return &CHECK_CAST{}
-	// case 0xc1:
-	// 	return &INSTANCE_OF{}
+		// case 0xac:
+		// 	return ireturn
+		// case 0xad:
+		// 	return lreturn
+		// case 0xae:
+		// 	return freturn
+		// case 0xaf:
+		// 	return dreturn
+		// case 0xb0:
+		// 	return areturn
+		// case 0xb1:
+		// 	return _return
+	case 0xb2:
+		return &references.GET_STATIC{}
+	case 0xb3:
+		return &references.PUT_STATIC{}
+	case 0xb4:
+		return &references.GET_FIELD{}
+	case 0xb5:
+		return &references.PUT_FIELD{}
+	case 0xb6:
+		return &references.INVOKE_VIRTUAL{}
+	case 0xb7:
+		return &references.INVOKE_SPECIAL{}
+		// case 0xb8:
+		// 	return &INVOKE_STATIC{}
+		// case 0xb9:
+		// 	return &INVOKE_INTERFACE{}
+		// case 0xba:
+		// 	return &INVOKE_DYNAMIC{}
+	case 0xbb:
+		return &references.NEW{}
+		// case 0xbc:
+		// 	return &NEW_ARRAY{}
+		// case 0xbd:
+		// 	return &ANEW_ARRAY{}
+		// case 0xbe:
+		// 	return arraylength
+		// case 0xbf:
+		// 	return athrow
+	case 0xc0:
+		return &references.CHECK_CAST{}
+	case 0xc1:
+		return &references.INSTANCE_OF{}
 	// case 0xc2:
 	// 	return monitorenter
 	// case 0xc3:

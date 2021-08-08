@@ -1,6 +1,6 @@
 package base
 
-import "JVM-Go/rtda/rtda"
+import "JVM-Go/heap/rtda"
 
 func Branch(frame *rtda.Frame, offset int) {
 	pc := frame.GetThread().GetPC()

@@ -1,11 +1,11 @@
 package extended
 
 import (
-	"JVM-Go/instructions/instructions/base"
-	"JVM-Go/instructions/instructions/loads"
-	"JVM-Go/instructions/instructions/math"
-	"JVM-Go/instructions/instructions/stores"
-	"JVM-Go/rtda/rtda"
+	"JVM-Go/heap/instructions/base"
+	"JVM-Go/heap/instructions/loads"
+	"JVM-Go/heap/instructions/math"
+	"JVM-Go/heap/instructions/stores"
+	"JVM-Go/heap/rtda"
 )
 
 //WIDE wide指令改变其他指令的行为

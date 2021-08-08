@@ -1,13 +1,15 @@
 package rtda
 
+import "JVM-Go/heap/rtda/heap"
+
 //Thread 结构体定义
 type Thread struct {
 	pc    int    //PC计数器
 	stack *Stack //Java虚拟机栈
 }
 
-//newThread 创建线程实例
-func newThread() *Thread {
+//NewThread 创建线程实例
+func NewThread() *Thread {
 	return &Thread{
 		stack: newStack(1024),
 	}
@@ -36,4 +38,12 @@ func (self *Thread) PopFrame() *Frame {
 //CurrentFrame 获取当前栈帧
 func (self *Thread) CurrentFrame() *Frame {
 	return self.stack.top()
+}
+
+func (self *Thread) GetPC() int {
+	return self.pc
+}
+
+func (self *Thread) NewFrame(method *heap.Method) *Frame {
+	return NewFrame(self, method)
 }
