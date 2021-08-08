@@ -1,6 +1,9 @@
 package heap
 
-import "JVM-Go/heap/classfile"
+import (
+	"JVM-Go/heap/classfile"
+	"strings"
+)
 
 //Class 将要放进方法区内的类模板的结构体
 type Class struct {
@@ -64,4 +67,19 @@ func (self *Class) IsAnnotation() bool {
 
 func (self *Class) IsEnum() bool {
 	return self.accessFlags&ACC_ENUM != 0
+}
+
+func (self *Class) isAccessibleTo(other *Class) bool {
+	return self.IsPublic() || self.getPackageName() == other.getPackageName()
+}
+
+func (self *Class) getPackageName() string {
+	if i := strings.LastIndex(self.className, "/"); i >= 0 {
+		return self.className[:i]
+	}
+	return ""
+}
+
+func (self *Class) isSubClassOf(c *Class) bool {
+	return self.superClassName == c.superClassName
 }

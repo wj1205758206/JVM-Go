@@ -25,36 +25,12 @@ func (self *Field) isLongOrDouble() bool {
 	return self.descriptor == "J" || self.descriptor == "D"
 }
 
-func (self *Field) IsPublic() bool {
-	return self.accessFlags&ACC_PUBLIC != 0
-}
-
-func (self *Field) IsPrivate() bool {
-	return self.accessFlags&ACC_PRIVATE != 0
-}
-
-func (self *Field) IsProtected() bool {
-	return self.accessFlags&ACC_PROTECTED != 0
-}
-
-func (self *Field) IsStatic() bool {
-	return self.accessFlags&ACC_STATIC != 0
-}
-
-func (self *Field) IsFinal() bool {
-	return self.accessFlags&ACC_FINAL != 0
-}
-
 func (self *Field) IsVolatile() bool {
 	return self.accessFlags&ACC_VOLATILE != 0
 }
 
 func (self *Field) IsTransient() bool {
 	return self.accessFlags&ACC_TRANSIENT != 0
-}
-
-func (self *Field) IsSynthetic() bool {
-	return self.accessFlags&ACC_SYNTHETIC != 0
 }
 
 func (self *Field) IsEnum() bool {
@@ -72,7 +48,7 @@ func (self *Field) GetDescriptor() string {
 //copyAttributes 从字段属性表中读取constValueIndex
 func (self *Field) copyAttributes(cfField *classfile.MemberInfo) {
 	constValueAttr := cfField.GetConstantValueAttribute()
-	if constValueAttr !=nil{
+	if constValueAttr != nil {
 		self.constValueIndex = uint(constValueAttr.ConstantValueIndex())
 	}
 }

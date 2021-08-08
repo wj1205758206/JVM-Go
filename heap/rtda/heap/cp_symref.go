@@ -10,3 +10,22 @@ type SymRef struct {
 	className string        //存放类的完全限定名
 	class     *Class        //缓存解析后的类结构体指针，这样类符号引用只需要解析一次就可以了，后续可以直接使用缓存值
 }
+
+//ResolvedClass 类符号引用解析
+func (self *SymRef) ResolvedClass() *Class {
+	//如果类符号引用已经解析，ResolvedClass方法直接返回类指针，否则调用resolveClassRef方法进行解析。
+	if self.class == nil {
+		self.resolveClassRef()
+	}
+	return self.class
+}
+
+//resolveClassRef 进行类符号引用解析
+func (self *SymRef) resolveClassRef() {
+	d := self.cp.class
+	c := d.loader.LoadClass(self.className)
+	if !c.isAccessibleTo(d) {
+		panic("java.lang.IllegalAccessError")
+	}
+	self.class = c
+}
