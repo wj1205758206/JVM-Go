@@ -1,8 +1,8 @@
 package math
 
 import (
-	"JVM-Go/instructions/instructions/base"
-	"JVM-Go/rtda/rtda"
+	"JVM-Go/heap/instructions/base"
+	"JVM-Go/heap/rtda"
 )
 
 //ISUB int类型减法指令

@@ -1,8 +1,8 @@
 package comparisons
 
 import (
-	"JVM-Go/instructions/instructions/base"
-	"JVM-Go/rtda/rtda"
+	"JVM-Go/heap/instructions/base"
+	"JVM-Go/heap/rtda"
 )
 
 //DCMPG 比较两个double类型变量的大小，如果遇到NaN值，dcmpg会压入1

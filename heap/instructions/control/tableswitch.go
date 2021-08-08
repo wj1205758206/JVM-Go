@@ -1,8 +1,8 @@
 package control
 
 import (
-	"JVM-Go/instructions/instructions/base"
-	"JVM-Go/rtda/rtda"
+	"JVM-Go/heap/instructions/base"
+	"JVM-Go/heap/rtda"
 )
 
 //TABLE_SWITCH 多条件分支跳转，case值必须是连续的

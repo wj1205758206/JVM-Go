@@ -11,7 +11,7 @@ type Method struct {
 }
 
 //newMethods 根据classFile文件中的方法信息创建Method表
-func (self *Method) newMethods(class *Class, cfMethods []*classfile.MemberInfo) []*Method {
+func newMethods(class *Class, cfMethods []*classfile.MemberInfo) []*Method {
 	methods := make([]*Method, len(cfMethods))
 	for i, cfMethod := range cfMethods {
 		methods[i] = &Method{}
@@ -30,4 +30,16 @@ func (self *Method) copyAttributes(cfMethod *classfile.MemberInfo) {
 		self.maxLocals = codeAttr.GetLocals()
 		self.code = codeAttr.GetCode()
 	}
+}
+
+func (self *Method) GetMaxLocals() uint {
+	return self.maxLocals
+}
+
+func (self *Method) GetMaxStack() uint {
+	return self.maxStack
+}
+
+func (self *Method) GetCode() []byte {
+	return self.code
 }

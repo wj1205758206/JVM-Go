@@ -52,3 +52,7 @@ func (self *Field) copyAttributes(cfField *classfile.MemberInfo) {
 		self.constValueIndex = uint(constValueAttr.ConstantValueIndex())
 	}
 }
+
+func (self *Field) GetConstantValueIndex() uint {
+	return self.constValueIndex
+}

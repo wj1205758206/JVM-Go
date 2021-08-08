@@ -1,8 +1,8 @@
 package constants
 
 import (
-	"JVM-Go/instructions/instructions/base"
-	"JVM-Go/rtda/rtda"
+	"JVM-Go/heap/instructions/base"
+	"JVM-Go/heap/rtda"
 )
 
 //NOP 空指令不执行任何操作

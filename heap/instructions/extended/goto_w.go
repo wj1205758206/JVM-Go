@@ -1,8 +1,8 @@
 package extended
 
 import (
-	"JVM-Go/instructions/instructions/base"
-	"JVM-Go/rtda/rtda"
+	"JVM-Go/heap/instructions/base"
+	"JVM-Go/heap/rtda"
 )
 
 //GOTO_W 进行无条件跳转

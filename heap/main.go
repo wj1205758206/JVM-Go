@@ -1,9 +1,10 @@
 package main
 
 import (
-	"JVM-Go/rtda/classfile"
-	"JVM-Go/rtda/classpath"
-	"JVM-Go/rtda/rtda"
+	"JVM-Go/heap/classfile"
+	"JVM-Go/heap/classpath"
+	"JVM-Go/heap/rtda"
+	"JVM-Go/heap/rtda/heap"
 	"fmt"
 	"strings"
 )
@@ -22,9 +23,10 @@ func main() {
 func startJVM(cmd *Cmd) {
 
 	cp := classpath.Parse(cmd.XjreOption, cmd.cpOption)
+	classLoader := heap.NewClassLoader(cp)
 	className := strings.Replace(cmd.class, ".", "/", -1)
-	cf := loadClass(className, cp)
-	mainMethod := getMainMethod(cf)
+	mainClass := classLoader.LoadClass(className)
+	mainMethod := mainClass.GetMainMethod()
 	if mainMethod != nil {
 		interpreter(mainMethod)
 	} else {

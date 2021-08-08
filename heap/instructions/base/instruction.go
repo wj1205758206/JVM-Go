@@ -1,6 +1,6 @@
 package base
 
-import "JVM-Go/rtda/rtda"
+import "JVM-Go/heap/rtda"
 
 //Instruction 把指令抽象成接口，解码和执行逻辑写在具体的指令实现中
 type Instruction interface {

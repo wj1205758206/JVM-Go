@@ -1,8 +1,8 @@
 package comparisons
 
 import (
-	"JVM-Go/instructions/instructions/base"
-	"JVM-Go/rtda/rtda"
+	"JVM-Go/heap/instructions/base"
+	"JVM-Go/heap/rtda"
 )
 
 //IF_ACMPEQ 比较两个引用类型数值是否相等，相等则跳转

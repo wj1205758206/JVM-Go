@@ -7,6 +7,14 @@ type MethodRef struct {
 	method *Method
 }
 
+func (self *MethodRef) GetName() string {
+	return self.name
+}
+
+func (self *MethodRef) GetDescriptor() string {
+	return self.descriptors
+}
+
 func newMethodRef(cp *ConstantPool, refInfo *classfile.ConstantMethodrefInfo) *MethodRef {
 	ref := &MethodRef{}
 	ref.cp = cp

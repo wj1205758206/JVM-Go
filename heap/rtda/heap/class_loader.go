@@ -11,8 +11,8 @@ type ClassLoader struct {
 	classMap map[string]*Class    //记录已经加载的类数据,类似于方法区的具体实现
 }
 
-//newClassLoader 创建ClassLoader实例
-func newClassLoader(cp *classpath.Classpath) *ClassLoader {
+//NewClassLoader 创建ClassLoader实例
+func NewClassLoader(cp *classpath.Classpath) *ClassLoader {
 	return &ClassLoader{
 		cp:       cp,
 		classMap: make(map[string]*Class),
@@ -32,7 +32,7 @@ func (self *ClassLoader) loadNonArrayClass(className string) *Class {
 	data, entry := self.readClass(className) //找到class文件并把数据读取到内存
 	class := self.defineClass(data)          //解析class文件，生成虚拟机可以使用的类数据,并放入方法区
 	link(class)                              //进行类的链接
-	fmt.Printf("[Loaded %s from %s]\n", className, entry)
+	fmt.Printf("[Loaded %s from %v]\n", className, entry)
 	return class
 }
 
@@ -40,6 +40,10 @@ func (self *ClassLoader) loadNonArrayClass(className string) *Class {
 func link(class *Class) {
 	verify(class)  //验证环节
 	prepare(class) //准备环节
+}
+
+func verify(class *Class) {
+	//TODO
 }
 
 func prepare(class *Class) {

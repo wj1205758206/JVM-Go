@@ -1,8 +1,8 @@
 package extended
 
 import (
-	"JVM-Go/instructions/instructions/base"
-	"JVM-Go/rtda/rtda"
+	"JVM-Go/heap/instructions/base"
+	"JVM-Go/heap/rtda"
 )
 
 //IFNULL 根据引用是否是null进行跳转,如果是null则跳转

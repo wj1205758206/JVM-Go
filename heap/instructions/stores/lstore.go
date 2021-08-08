@@ -1,8 +1,8 @@
 package stores
 
 import (
-	"JVM-Go/instructions/instructions/base"
-	"JVM-Go/rtda/rtda"
+	"JVM-Go/heap/instructions/base"
+	"JVM-Go/heap/rtda"
 )
 
 //LSTORE 把long类型变量从操作数栈顶弹出，然后存入局部变量表
